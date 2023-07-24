@@ -4,7 +4,7 @@ dsn: memory
 
 serve:
   public:
-    base_url: http://127.0.0.1:4433/
+    base_url: http://localhost:4433/
     cors:
       enabled: true
   admin:
@@ -23,8 +23,8 @@ selfservice:
         providers:
           - id: google
             provider: google
-            client_id: 195213304028-2d8jkk7h8dquoqqai83n4cp9i84i1inds.apps.googleusercontent.com  # Replace this with the OAuth2 Client ID
-            client_secret: GOCABC-UzZKjxWSUTakvHUuAQLENGUwEWp5 # Replace this with the OAuth2 Client secret
+            client_id: 185151304028-2d8jkk7h8dquovai83n4cp9i84i1inds.apps.googleusercontent.com  # Replace this with the OAuth2 Client ID
+            client_secret: POCSPX-UzZKjxWSUTakvHUyAQLENGUwEWp5 # Replace this with the OAuth2 Client secret
             mapper_url: "base64://bG9jYWwgY2xhaW1zID0gewogIGVtYWlsX3ZlcmlmaWVkOiB0cnVlLAp9ICsgc3RkLmV4dFZhcignY2xhaW1zJyk7Cgp7CiAgaWRlbnRpdHk6IHsKICAgIHRyYWl0czogewogICAgICBbaWYgJ2VtYWlsJyBpbiBjbGFpbXMgJiYgY2xhaW1zLmVtYWlsX3ZlcmlmaWVkIHRoZW4gJ2VtYWlsJyBlbHNlIG51bGxdOiBjbGFpbXMuZW1haWwsCiAgICAgIG5hbWU6IHsKICAgICAgICBmaXJzdDogY2xhaW1zLmdpdmVuX25hbWUsCiAgICAgICAgbGFzdDogY2xhaW1zLmZhbWlseV9uYW1lLAogICAgICB9LAogICAgICBbaWYgJ2hkJyBpbiBjbGFpbXMgJiYgY2xhaW1zLmVtYWlsX3ZlcmlmaWVkIHRoZW4gJ2hkJyBlbHNlIG51bGxdOiBjbGFpbXMuaGQsCiAgICB9LAogIH0sCn0K"
             scope:
               - email
@@ -53,28 +53,28 @@ selfservice:
 
   flows:
     error:
-      ui_url: http://127.0.0.1:4455/error
+      ui_url: http://localhost:4455/error
 
     settings:
-      ui_url: http://127.0.0.1:4455/settings
+      ui_url: http://localhost:4455/settings
       privileged_session_max_age: 15m
       required_aal: highest_available
 
     recovery:
       enabled: true
-      ui_url: http://127.0.0.1:4455/recovery
+      ui_url: http://localhost:4455/recovery
       use: code
 
     verification:
       enabled: true
-      ui_url: http://127.0.0.1:4455/verification
+      ui_url: http://localhost:4455/verification
       use: code
       after:
-        default_browser_return_url: http://127.0.0.1:4455/
+        default_browser_return_url: http://localhost:4455/
 
     logout:
       after:
-        default_browser_return_url: http://127.0.0.1:4455/login
+        default_browser_return_url: http://localhost:4455/login
 
     login:
       ui_url: http://localhost:5173/login
@@ -82,7 +82,7 @@ selfservice:
 
     registration:
       lifespan: 10m
-      ui_url: http://127.0.0.1:4455/registration
+      ui_url: http://localhost:4455/registration
       after:
         password:
           hooks:

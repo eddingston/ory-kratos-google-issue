@@ -11,20 +11,27 @@ export async function POST(request) {
         const cookies = request.request.headers.get('Cookie');
         // The value of cookies is "csrf_token_806060ca5bf70dff3caa0e5c860002aade9d470a5a4dce73bcfa7ba10778f481=U9xzGIypFHy/L+K/QNy30ucZDGjywQrMTJEJgSLEBi4="
 
+        // Create an instance of URLSearchParams
+        const formData = new URLSearchParams();
+
+        // Populate the formData with data from your JSON object
+        for (const key in data) {
+            formData.append(key, data[key]);
+        }
+
+        // Populate the formData with data from your JSON object\
         const response = await fetch(`http://localhost:4433/self-service/login?flow=${data.flowId}&provider=google`, {
             method: 'POST',
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Cookie': cookies,
+                'Cookie': cookies, // I do not believe this is doing anything here. Same result with or without it.
             },
-            body: JSON.stringify(data),
+            body: formData.toString(),
             redirect: 'manual',
         });
 
-        // If the response is a redirect,
         if (response.status >= 300 && response.status < 400) {
-            // get the redirect URL and send the redirect URL back to the frontend.
             const redirectUrl = response.headers.get('Location');
             return new Response(JSON.stringify({ redirectUrl }), {
                 status: response.status,

@@ -12,7 +12,7 @@
 	// 		"csrfCookie": "csrf_token_806060ca5bf70dff3caa0e5c860002aade9d470a5a4dce73bcfa7ba10778f481=s8E2oAmdz2U98oGdrQs637XtOhjj0dfcSUYaUrlZyCM=",
 	// 		"flowId": "e0ecba06-c8b1-4bc7-8084-94c0f9945d16"
 	// 	},
-	// 	"actionUrl": "http://127.0.0.1:4433/self-service/login?flow=e0ecba06-c8b1-4bc7-8084-94c0f9945d16",
+	// 	"actionUrl": "http://localhost:4433/self-service/login?flow=e0ecba06-c8b1-4bc7-8084-94c0f9945d16",
 	// 	"csrfToken": "GUNluYCkqYhQ7GRQ85q/J1AdrHIaTNBS55On1PI8liqqglMZiTlm7W0e5c1ekYX45fCWavmdB46u1b2GS2VeCQ=="
 	// }
 
@@ -25,7 +25,8 @@
 				method: 'POST',
 				credentials: 'include',
 				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
+					// 'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
 					flowId: data.flowData.flowId, //"54e3ebdf-06c9-45cd-8258-45a7619443f2"
