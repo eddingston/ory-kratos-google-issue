@@ -20,7 +20,7 @@ export async function POST(request) {
         }
 
         // Populate the formData with data from your JSON object\
-        const response = await fetch(`http://localhost:4433/self-service/login?flow=${data.flowId}&provider=google`, {
+        const response = await fetch(`http://edd-test.com:4433/self-service/login?flow=${data.flowId}&provider=google`, {
             method: 'POST',
             credentials: 'include',
             headers: {

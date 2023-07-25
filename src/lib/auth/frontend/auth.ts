@@ -1,7 +1,7 @@
 import type { AuthFlowAction } from "../types";
 
 export async function requestInitialFlowData(action: AuthFlowAction) {
-    const response = await fetch(`http://localhost:5173/api/auth/${action}`);
+    const response = await fetch(`http://edd-test.com:5173/api/auth/${action}`);
 
     const responseData = await response.json();
 

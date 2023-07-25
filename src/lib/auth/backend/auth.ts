@@ -1,7 +1,7 @@
 import type { AuthFlowAction, AuthFlowData } from "../types";
 
 export async function initializeAuthFlow(action: AuthFlowAction): Promise<AuthFlowData> {
-    const response = await fetch(`http://localhost:4433/self-service/${action}/browser`, {
+    const response = await fetch(`http://edd-test.com:4433/self-service/${action}/browser`, {
         credentials: 'include',
         redirect: 'manual'
     });
@@ -35,7 +35,7 @@ async function extractCsrfCookie(response: Response): Promise<string> {
 }
 
 export async function requestAuthFlowFormData(action: AuthFlowAction, flowData: AuthFlowData) {
-    const url = new URL(`http://localhost:4433/self-service/${action}/flows?id=${flowData.flowId}`);
+    const url = new URL(`http://edd-test.com:4433/self-service/${action}/flows?id=${flowData.flowId}`);
     const response = await fetch(url, {
         credentials: 'include',
         headers: {
